@@ -1,0 +1,9 @@
+{
+	"x": 3,
+	"y": 3,
+	"cells": [
+		null, null, null,
+		null, 9, null,
+		null, null, null
+	]
+}

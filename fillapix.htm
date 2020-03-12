@@ -1,281 +1,110 @@
+<!doctype html>
 <html>
-<head>
-  <title></title>
-<style type="text/css">
-<!--
-.td_norm {
-        cursor: pointer;
-        color: #000000;
-}
-.td_full {
-        cursor: pointer;
-        background-color: #000000;
-        color: #FFFFFF;
-}
-.td_empt {
-        cursor: pointer;
-        background-color: #DDDDDD;
-        color: #000000;
-}
-.chk_full {
-        cursor: pointer;
-        background-color: #000000;
-        color: #BBBBBB;
-}
-.chk_empt {
-        cursor: pointer;
-        background-color: #DDDDDD;
-        color: #BBBBBB;
-}
-.err_norm {
-        cursor: pointer;
-        color: #FF0000;
-}
-.err_full {
-        cursor: pointer;
-        background-color: #000000;
-        color: #FF0000;
-}
-.err_empt {
-        cursor: pointer;
-        background-color: #DDDDDD;
-        color: #FF0000;
-}
--->
-</style>
-</head>
-<body>
+	<head>
+		<title>Fill-a-pix game</title>
+		<link href="fillapix.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="standart-box news-rounded fillapix">
+			<div class="box-title">
+				<div class="news_header">Fill-a-Pix (Demo)</div>
+			</div>
+			<div class="box-content">
+				<div class="selector">
+					Select a game: 
+					<select id="game_selector">
+						<optgroup label="Simple">
+							<option value="avt">Auto [50x40]</option>
+							<option value="baby">Baby [40x40]</option>
+							<option value="bear">Bear [35x35]</option>
+							<option value="car">Car [20x20]</option>
+							<option value="chicken">Chicken [15x15]</option>
+							<option value="cowboy">Cowboy [40x40]</option>
+							<option value="elephant">Elephant [20x20]</option>
+							<option value="elephant2">Elephant 2 [35x35]</option>
+							<option value="fap_puzzle1">Fap Puzzle [35x35]</option>
+							<option value="honey_sucker">Honey Sucker [30x30]</option>
+							<option value="horse-easy">Horse [15x15]</option>
+							<option value="in_the_kitchen">In The Kitchen [40x40]</option>
+							<option value="indian">Indian [20x20]</option>
+							<option value="kids">Kids [15x10]</option>
+							<option value="lion">Lion [15x15]</option>
+							<option value="lions">Lions [60x40]</option>
+							<option value="market">Market [100x60]</option>
+							<option value="onion">Onion [15x15]</option>
+							<option value="owl">Owl [15x15]</option>
+							<option value="presents">Presents [25x25]</option>
+							<option value="rabbit">Rabbit [35x35]</option>
+							<option value="raining">Raining [35x35]</option>
+							<option value="riding">Riding [25x25]</option>
+							<option value="safe">Safe [20x20]</option>
+							<option value="santa">Santa [50x40]</option>
+							<option value="singer">Singer [30x30]</option>
+							<option value="snail">Snail [10x10]</option>
+							<option value="snowman">Snowman [30x30]</option>
+							<option value="telephone">Telephone [20x20]</option>
+							<option value="train">Train [15x15]</option>
+							<option value="waiter">Waiter [20x20]</option>
+						</optgroup>
+						<optgroup label="Middle">
+							<option value="cat">Cat [15x15]</option>
+							<option value="dj">DJ [20x20]</option>
+							<option value="dinosaur">Dinosaur [25x25]</option>
+							<option value="dogs">Dogs [30x30]</option>
+							<option value="dolphin">Dolphin [15x15]</option>
+							<option value="fish">Fish [40x40]</option>
+							<option value="horse">Horse [15x15]</option>
+							<option value="horse_training">Horse Training [60x40]</option>
+							<option value="koalas">Koalas [30x30]</option>
+							<option value="mickey_mouse">Mickey Mouse [30x30]</option>
+							<option value="napoleon">Napoleon [15x15]</option>
+						</optgroup>
+						<optgroup label="Advanced">
+							<option value="advanced1">Advanced 1 [15x15]</option>
+							<option value="angel">Angel [40x40]</option>
+							<option value="band">Band [60x40]</option>
+							<option value="birds">Birds [30x30]</option>
+							<option value="bull">Bull [20x20]</option>
+							<option value="caesar">Caesar [20x20]</option>
+							<option value="candy">Candy [25x25]</option>
+							<option value="cat2">Cat 2 [30x30]</option>
+							<option value="cowboys">Cowboys [100x60]</option>
+							<option value="dragon">Dragon [20x20]</option>
+							<option value="eskimo">Eskimo [30x30]</option>
+							<option value="fireman">Fireman [40x40]</option>
+							<option value="flying">Flying [30x30]</option>
+							<option value="guitar_player">Guitar Player [25x25]</option>
+							<option value="horse_carriage">Horse Carriage [50x40]</option>
+							<option value="house">House [20x20]</option>
+							<option value="newborn_baby">Newborn Baby [100x60]</option>
+							<option value="painting">Painting [50x40]</option>
+							<option value="playground">Playground [50x40]</option>
+							<option value="red_riding_hood">Red Riding Hood [35x35]</option>
+							<option value="singing">Singing [50x40]</option>
+							<option value="singing2">Singing 2 [60x40]</option>
+							<option value="shopping">Shopping [15x15]</option>
+							<option value="wave">Wave [15x15]</option>
+							<option value="wrestling">Wrestling [60x40]</option>
+						</optgroup>
+					</select>
+					<input type="button" value="Start game" id="game_starter">
+				</div>
+				<div class="game-field" id="game_field">
+					<div class="timer">
+						Game Timer: <span id="game_time"></span>
+					</div>
+					
+					<div class="game-canvas">
+						<canvas id="game_canvas"></canvas>
+					</div>
+					
+					<input type="button" value="Check Errors" id="game_check">
+					<input type="button" value="Load Game" id="load_game">
+					<input type="button" value="Save Game" id="save_game">
+				</div>
+			</div>
+		</div>
 
-<script>
-var x = 15;
-var y = 15;
-var sumcheck = 0;
-var gtime = 0;
-var gameover = false;
-var cellb = Array(x*y);
-var cellc = Array('','','','','1','','0','','','','','3','','2','','','8','8','5','','','','','','4','','','','4','','','8','8','','3','2','','5','5','','','5','6','','3','','','','','','','','','','3','','7','7','','','1','','','','2','4','','','','5','','7','7','','','','','','2','','5','','4','5','7','','','','2','','0','','2','','','','2','','','7','','4','','','','','3','5','6','4','4','','','','','','','','0','','','4','','','','','3','','5','','','','2','','','','','','4','','','','7','8','6','','','','1','','4','','','4','','','','7','8','7','','2','','','','','6','','6','','','7','','','7','5','','','','','','9','8','','','8','8','','8','','6','','','0','','','','9','','','8','9','','','8','','','','','','4','','','','','6','','','','','5','5','4','2','');
-
-function drawTable()
-{
-        tmp = '<table border="1" bordercolor="#666666" cellpadding="0" cellspacing="0">';
-        curnum = 0;
-        for (j=0; j<y; j++)
-        {
-                tmp += '<tr>';
-                for (i=0; i<x; i++)
-                {
-                        capt = cellc[curnum];
-                        if (capt=='') capt = '&nbsp;';
-                        tmp += '<td id="cl_'+curnum+'" class="td_norm" width="20" height="20" align="center" valign="middle" onClick="cellClick('+curnum+')"><b>'+capt+'</b></td>';
-                        cellb[curnum] = 0;
-                        curnum++;
-                }
-                tmp += '</tr>';
-        }
-        tmp += '</table>';
-        document.getElementById('tab').innerHTML = tmp;
-        timer();
-}
-
-function cellClick(cnum)
-{
-        if (gameover) return;
-
-        var val = cellb[cnum];
-        val++;
-        if (val==3) val=0;
-        if (val==0) sumcheck--;
-        if (val==1) sumcheck++;
-        cellb[cnum] = val;
-
-        var curx = cnum%x;
-        var cury = parseInt(cnum/x);
-
-        redrawCell(curx-1,cury-1);
-        redrawCell(curx,cury-1);
-        redrawCell(curx+1,cury-1);
-        redrawCell(curx-1,cury);
-        redrawCell(curx,cury);
-        redrawCell(curx+1,cury);
-        redrawCell(curx-1,cury+1);
-        redrawCell(curx,cury+1);
-        redrawCell(curx+1,cury+1);
-
-        if (sumcheck==(x*y))
-            makeFullCheck(false);
-}
-
-function makeFullCheck(markit)
-{
-        var errorz = 0;
-        for (cury=0; cury<y; cury++)
-        {
-                for (curx=0; curx<x; curx++)
-                {
-                        tmp = cellc[getIndex(curx,cury)];
-                        if (tmp!='')
-                        {
-                                c_info = getCellInfo(curx,cury);
-                                cnum = parseInt(tmp);
-                                if (cnum<c_info[3] || (c_info[0]-cnum)<c_info[4])
-                                {
-                                        errorz++;
-                                        if (markit) markError(curx,cury);
-                                }
-                        }
-                }
-        }
-        if (!markit && errorz==0)
-             gameover = true;
-}
-
-function markError(curx,cury)
-{
-        var cobj = document.getElementById('cl_'+getIndex(curx,cury));
-        switch (cobj.className)
-        {
-                case 'td_norm':
-                      cobj.className = 'err_norm';
-                      break;
-                case 'chk_full':
-                case 'td_full':
-                      cobj.className = 'err_full';
-                      break;
-                case 'chk_empt':
-                case 'td_empt':
-                      cobj.className = 'err_empt';
-                      break;
-        }
-}
-
-function getIndex(curx,cury)
-{
-        return cury*x+curx;
-}
-
-function redrawCell(curx,cury)
-{
-        if (curx<0 || curx>=x || cury<0 || cury>=y)
-            return false;
-
-        var c_info = getCellInfo(curx,cury);
-        var indx = getIndex(curx,cury);
-        var cobj = document.getElementById('cl_'+indx);
-        if (c_info[0]==c_info[1])
-        {
-                switch (cellb[indx])
-                {
-                        case 1: cobj.className = 'chk_full'; break;
-                        case 2: cobj.className = 'chk_empt'; break;
-                }
-        } else {
-                switch (cellb[indx])
-                {
-                        case 0: cobj.className = 'td_norm'; break;
-                        case 1: cobj.className = 'td_full'; break;
-                        case 2: cobj.className = 'td_empt'; break;
-                }
-        }
-}
-
-function getCellInfo(curx,cury)
-{
-        var c_info = Array(1,0,0,0,0); //cells_around,cells_not_blank,blank_cells,full_cells,emty_cells
-        var tmp;
-
-        if ((curx-1)>=0 && (cury-1)>=0)
-        {
-                c_info[0]++;
-                tmp = cellb[getIndex(curx-1,cury-1)];
-                if (tmp!=0) c_info[1]++;
-                c_info[tmp+2]++;
-        }
-        if ((cury-1)>=0)
-        {
-                c_info[0]++;
-                tmp = cellb[getIndex(curx,cury-1)];
-                if (tmp!=0) c_info[1]++;
-                c_info[tmp+2]++;
-        }
-        if ((curx+1)<x && (cury-1)>=0)
-        {
-                c_info[0]++;
-                tmp = cellb[getIndex(curx+1,cury-1)];
-                if (tmp!=0) c_info[1]++;
-                c_info[tmp+2]++;
-        }
-        if ((curx-1)>=0)
-        {
-                c_info[0]++;
-                tmp = cellb[getIndex(curx-1,cury)];
-                if (tmp!=0) c_info[1]++;
-                c_info[tmp+2]++;
-        }
-        //Own cell
-        tmp = cellb[getIndex(curx,cury)];
-        if (tmp!=0) c_info[1]++;
-        c_info[tmp+2]++;
-        //own cell
-        if ((curx+1)<x)
-        {
-                c_info[0]++;
-                tmp = cellb[getIndex(curx+1,cury)];
-                if (tmp!=0) c_info[1]++;
-                c_info[tmp+2]++;
-        }
-        if ((curx-1)>=0 && (cury+1)<y)
-        {
-                c_info[0]++;
-                tmp = cellb[getIndex(curx-1,cury+1)];
-                if (tmp!=0) c_info[1]++;
-                c_info[tmp+2]++;
-        }
-        if ((cury+1)<y)
-        {
-                c_info[0]++;
-                tmp = cellb[getIndex(curx,cury+1)];
-                if (tmp!=0) c_info[1]++;
-                c_info[tmp+2]++;
-        }
-        if ((curx+1)<x && (cury+1)<y)
-        {
-                c_info[0]++;
-                tmp = cellb[getIndex(curx+1,cury+1)];
-                if (tmp!=0) c_info[1]++;
-                c_info[tmp+2]++;
-        }
-
-        return c_info;
-}
-
-function timer()
-{
-        gtime++;
-        drawGameTime();
-        if (!gameover)
-             setTimeout('timer()',1000);
-}
-
-function drawGameTime()
-{
-        var hh = parseInt(gtime/3600);
-        var mm = parseInt((gtime - hh*3600)/60);
-
-        var shh = String(hh);
-        if (shh.length==1) shh = '0'+shh;
-        var smm = String(mm);
-        if (smm.length==1) smm = '0'+smm;
-        var sss = String(gtime%60);
-        if (sss.length==1) sss = '0'+sss;
-        document.getElementById('game_time').innerHTML = shh+':'+smm+':'+sss;
-}
-</script>
-
-<div align="center">
-  Game Time: <span id="game_time">00:00:00</span><br /><br />
-  <span id="tab"></span><br /><br />
-  <input type="button" value="Check Errors" onClick="makeFullCheck(true);"><br />
-</div>
-<script>drawTable();</script>
-</body>
+		<script src="game.js"></script>
+	</body>
 </html>

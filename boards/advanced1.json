@@ -1,0 +1,24 @@
+{
+	"x": 15,
+	"y": 15,
+	"cells": [
+		null, null, null, 4, null, null, 4, null, 6, null, 5, 4, null, null, 1,
+		null, 4, null, null, null, null, null, null, null, 7,null, null, null, null, null, 
+		null, null, 4, null, null, 0, 1, null, 4, null, 5, null, 6, null, null, 
+		4, null, null, 0, null, 0, null, 3, null, null, 4, null, 5, null, 4,
+		null, null, 1, null, null, 2, null, 3, 5, 4, null, 4, 5, null, null, 
+		null, 2, null, null, 3, null, 5, null, null, 5, 5, 5, null, null, null, 
+		null, null, 1, 2, null, 5, null, 3, 4, null, null, null, null, null, 5,
+		null, 0, 0, 1, null, null, 5, null, 6, null, 7, null, 6, null, 4,
+		null, null, null, null, null, null, null, null, 5, 5, null, null, 6, null, null, 
+		null, 0, null, null, 4, null, 6, null, null, null, 6, null, 7, null, null, 
+		null, null, null, null, null, 8, null, 8, 7, null, null, null, 7, null, 3,
+		null, null, 5, null, 7, null, 8, null, 7, 7, null, null, 5, null, null, 
+		null, 2, null, 8, null, 8, null, null, null, 6, 5, null, null, null, 5,
+		null, 1, null, 5, null, 5, null, 3, null, null, 5, null, 3, null, 4,
+		null, null, null, null, null, null, null, null, null, null, null, 2, 3, null, null
+	]
+}
+
+
+

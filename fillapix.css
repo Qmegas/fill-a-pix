@@ -1,0 +1,32 @@
+.fillapix .box-content {
+	text-align: center;
+}
+.fillapix .selector {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #e5e5e5;
+}
+.fillapix .game-field {
+	display: none;
+	overflow: auto;
+}
+.fillapix .game-field .timer {
+	margin-bottom: 1em;
+}
+.fillapix .game-canvas {
+	margin-bottom: 1em;
+}
+.fillapix .game-canvas canvas {
+	cursor: pointer;
+}
+
+.main-box {
+	width: 100%;
+}
+.main-box .main-continer .left-column {
+	display: none;
+}
+.main-box .main-continer .right-column {
+	float: none;
+	width: 100%;
+}
